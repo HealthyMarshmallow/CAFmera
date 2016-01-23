@@ -22,7 +22,9 @@ LOCAL_AAPT_FLAGS := \
         --version-name "$(version_name_package)" \
         --version-code $(version_code_package) \
 
-LOCAL_PACKAGE_NAME := SnapdragonCamera
+LOCAL_PACKAGE_NAME := CAFmera
+
+LOCAL_AAPT_FLAGS += --rename-manifest-package org.codeaurora.cafmera
 
 #LOCAL_SDK_VERSION := current
 
@@ -34,9 +36,9 @@ LOCAL_PROGUARD_FLAG_FILES := proguard.flags
 # the libraries in the APK, otherwise just put them in /system/lib and
 # leave them out of the APK
 ifneq (,$(TARGET_BUILD_APPS))
-  LOCAL_JNI_SHARED_LIBRARIES := libjni_snapcammosaic libjni_snapcamtinyplanet
+  LOCAL_JNI_SHARED_LIBRARIES := libjni_cafmeramosaic libjni_cafmeratinyplanet
 else
-  LOCAL_REQUIRED_MODULES := libjni_snapcammosaic libjni_snapcamtinyplanet
+  LOCAL_REQUIRED_MODULES := libjni_cafmeramosaic libjni_cafmeratinyplanet
 endif
 
 include $(BUILD_PACKAGE)
